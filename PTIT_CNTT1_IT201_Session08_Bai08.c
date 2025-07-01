@@ -57,9 +57,9 @@ int main(){
    int choice;
    do {
       printf("\t menu \n");
-      printf("\t 1. Insertion Sort \n");
-      printf("\t 2. linearSearch \n");
-      printf("\t 3. binarySearch \n");
+      printf("1. Insertion Sort \n");
+      printf("2. linearSearch \n");
+      printf("3. binarySearch \n");
       printf("Enter choice: ");
       scanf("%d",&choice);
       switch(choice) {
