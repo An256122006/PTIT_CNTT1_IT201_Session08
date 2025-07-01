@@ -48,30 +48,42 @@ void binary_search(int *arr,int n,int left,int right) {
    printf("ko tim thay phan tu");
 }
 int main(){
+   int check=1;
    int n;
-   scanf("%d",&n);
-   int *arr=(int *)malloc(sizeof(int)*n);
-   for(int i=0;i<n;i++) {
-      scanf("%d",&arr[i]);
-   }
+   int *arr=(int *)malloc(sizeof(int));
    int choice;
    do {
       printf("\t menu \n");
-      printf("1. Insertion Sort \n");
-      printf("2. linearSearch \n");
-      printf("3. binarySearch \n");
+      printf("1. scan number\n");
+      printf("2. Insertion Sort  \n");
+      printf("3. search\n");
       printf("Enter choice: ");
       scanf("%d",&choice);
       switch(choice) {
          case 1:
-            insertion_sort(arr,n);
+            scanf("%d",&n);
+            arr=(int *)realloc(arr,n*sizeof(int));
+            for(int i=0;i<n;i++) {
+               scanf("%d",&arr[i]);
+            }
             print_array(arr,n);
             break;
          case 2:
-            linear_search(arr,n);
+            insertion_sort(arr,n);
+            print_array(arr,n);
             break;
          case 3:
-            binary_search(arr,n,0,n-1);
+            for (int i=0;i<n-1;i++) {
+               if (arr[i]>arr[i+1]) {
+                  check=0;
+                  break;
+               }
+            }
+            if (check==1) {
+               linear_search(arr,n);
+            }else {
+               binary_search(arr,n,0,n-1);
+            }
             break;
          default:
             break;
